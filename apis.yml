@@ -1,22 +1,125 @@
 aid: liquidtrust
-name: Liquidtrust
-description: Liquidtrust is a company surfaced as a portfolio company of anthemis and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+name: LiquidTrust
+description: LiquidTrust, operated by Liquid Global, Inc., is a B2B payments platform that embeds trust
+  and conditionality directly into the payment flow. Its core product, Micro Escrow(R), holds funds and
+  releases them against defined conditions such as milestones, approvals, and deliveries, giving buyers
+  and sellers recourse without a traditional escrow agent. The platform bundles KYC/KYB, AML and
+  sanctions screening into the payment rails and settles to 200+ countries, with J.P. Morgan named as a
+  payment-rails partner. LiquidTrust is sold to marketplaces, banks, and platform partners through three
+  integration models - referral, white-label, and a direct API integration that embeds conditional
+  payment logic into a partner platform. Pricing is a flat 1% all-in per protected transaction, with a
+  $10 flat Simple Pay option for lower-risk transfers. The API surface at api.liquidtrust.io is live but
+  access-gated behind sales onboarding; no public developer portal, OpenAPI description, SDKs, or
+  sandbox documentation is published at this time.
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://liquidtrust.io/lt-social-card.png
 url: https://raw.githubusercontent.com/api-evangelist/liquidtrust/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - anthemis
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-investors:
+- Anthemis
+- Resolute
+- Motivate
+- Mucker
+x-legal-entity: Liquid Global, Inc.
+x-tier: profiled
+x-tier-reason: identity and trust surface enriched; API is sales-gated with no public specification
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Payments
+- B2B Payments
+- Escrow
+- Fintech
+- Cross-Border Payments
+- Marketplaces
+- Compliance
+- KYC
+- Trust and Safety
+apis:
+- aid: liquidtrust:api
+  name: LiquidTrust API
+  description: The LiquidTrust API lets platform partners embed conditional payment logic - Micro
+    Escrow(R) holds, milestone approvals, and rule-based release - directly into their own product,
+    with LiquidTrust handling compliance and fund flows. The API host is live and returns standards
+    aligned response headers (Deprecation, Sunset, Link, traceparent), but the interface is
+    access-gated - onboarding runs through sales rather than a self-serve developer portal, and no
+    OpenAPI description, reference documentation, or sandbox is published publicly.
+  humanURL: https://www.liquidtrust.io/for-platform-partners
+  baseURL: https://api.liquidtrust.io
+  tags:
+  - Payments
+  - Escrow
+  - B2B Payments
+  properties:
+  - type: Documentation
+    url: https://www.liquidtrust.io/for-platform-partners
+common:
+- type: TrustCenter
+  url: security/liquidtrust-trust-center.yml
+- type: DomainSecurity
+  url: security/liquidtrust-domain-security.yml
+- type: Website
+  url: https://www.liquidtrust.io/
+- type: Documentation
+  url: https://www.liquidtrust.io/knowledge-base
+- type: Support
+  url: https://www.liquidtrust.io/contact
+- type: HelpCenter
+  url: https://www.liquidtrust.io/knowledge-base
+- type: Blog
+  url: https://liquidtrust.io/blog
+- type: Pricing
+  url: https://www.liquidtrust.io/pricing
+- type: Login
+  url: https://www.liquidtrust.io/login
+- type: SignUp
+  url: https://www.liquidtrust.io/talk-to-sales
+- type: TermsOfService
+  url: https://www.liquidtrust.io/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.liquidtrust.io/privacy
+- type: Security
+  url: https://www.liquidtrust.io/security
+- type: StatusPage
+  url: https://status.liquidtrust.io/
+- type: TrustCenter
+  url: https://trust.liquidtrust.io/
+- type: Compliance
+  url: https://www.liquidtrust.io/security
+- type: Lifecycle
+  url: lifecycle/liquidtrust-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/liquidtrust-lifecycle.yml
+- type: Conventions
+  url: conventions/liquidtrust-conventions.yml
+- type: Conformance
+  url: conformance/liquidtrust-conformance.yml
+- type: VulnerabilityDisclosure
+  url: security/liquidtrust-vulnerability-disclosure.yml
+- type: LLMsTxt
+  url: llms/liquidtrust-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
