@@ -1,0 +1,48 @@
+generated: '2026-07-19'
+method: searched
+probe: true
+source: https://www.liquidtrust.io/security
+url: https://trust.liquidtrust.io/
+hosted_trust_center:
+  url: https://trust.liquidtrust.io/
+  title: Liquid Trust Center
+  provider: Vanta
+  evidence: >-
+    trust.liquidtrust.io is a CNAME to cname.vantatrust.com and serves the Vanta trust-report
+    application (assets.vanta.com/static/index-trust-report.*). HTTP 200 on 2026-07-19. The report
+    body is client-rendered, so the certification list below is taken from the public security page,
+    which is the authoritative published text.
+security_page: https://www.liquidtrust.io/security
+certifications:
+- name: SOC 2 Type II
+  detail: >-
+    Audited annually, covering the security, availability, processing integrity, confidentiality, and
+    privacy trust services criteria.
+- name: ISO 27001
+  detail: Certified.
+- name: PCI DSS
+  detail: Level 1 compliant.
+- name: GDPR
+  detail: Compliant.
+- name: CCPA
+  detail: Stated compliance with CCPA and other global privacy regulations.
+encryption:
+  at_rest: AES-256, AWS KMS managed keys, automatic key rotation
+  in_transit: TLS 1.3
+controls:
+- 24/7 monitoring with real-time threat detection
+- Role-based access control (RBAC) and multi-factor authentication (MFA)
+- Regular penetration testing and vulnerability scanning
+- Funds held in segregated accounts at regulated U.S. financial institutions
+- AML and sanctions screening, KYB/KYC verification
+evidence:
+- source: https://www.liquidtrust.io/security
+  keywords:
+  - soc 2
+  - iso 27001
+  - pci dss
+  - gdpr
+  - ccpa
+- source: https://trust.liquidtrust.io/
+  kind: hosted trust center (Vanta)
+see_also: conformance/liquidtrust-conformance.yml

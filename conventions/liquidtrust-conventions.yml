@@ -1,0 +1,116 @@
+generated: '2026-07-19'
+method: searched
+source: https://api.liquidtrust.io/
+notes: >-
+  LiquidTrust publishes no public developer portal, API reference, or OpenAPI description - the API is
+  access-gated behind sales onboarding (see https://www.liquidtrust.io/for-platform-partners). The
+  conventions below are what could be observed directly on the live API host at api.liquidtrust.io plus
+  what the public marketing and security pages state. Anything not observed is recorded as unknown
+  rather than assumed; nothing here is inferred from a specification because none is published.
+
+api_host: https://api.liquidtrust.io
+
+authentication:
+  style: unknown
+  documented: false
+  evidence: >-
+    No public authentication documentation. The API host returns no WWW-Authenticate challenge on an
+    unauthenticated GET / and exposes no /.well-known/openid-configuration or
+    /.well-known/oauth-authorization-server (both 404).
+  see_also: null
+
+idempotency:
+  supported: unknown
+  header: null
+  evidence: >-
+    No Idempotency-Key header is advertised in the CORS Access-Control-Expose-Headers allow list and
+    no public documentation describes an idempotency contract. NOT claimed as supported.
+
+pagination:
+  style: link-header
+  evidence: >-
+    The API host exposes the RFC 8288 `Link` response header via
+    Access-Control-Expose-Headers, which is the conventional carrier for pagination relations
+    (next/prev/first/last). The specific relation names and page-size parameters are not documented
+    publicly.
+  params: unknown
+  response_fields: unknown
+
+deprecation_signaling:
+  supported: true
+  headers:
+  - Deprecation
+  - Sunset
+  standard: RFC 8594 (Sunset) / draft-ietf-httpapi-deprecation-header (Deprecation)
+  evidence: >-
+    api.liquidtrust.io returns
+    `access-control-expose-headers: traceparent,tracestate,X-Env-State,Deprecation,Sunset,Link`,
+    deliberately exposing the Deprecation and Sunset headers to browser clients. This is a
+    machine-readable deprecation contract even though no prose deprecation policy is published.
+  see_also: lifecycle/liquidtrust-lifecycle.yml
+
+request_tracing:
+  supported: true
+  headers:
+  - traceparent
+  - tracestate
+  standard: W3C Trace Context
+  evidence: >-
+    `traceparent` and `tracestate` are exposed via Access-Control-Expose-Headers, indicating W3C Trace
+    Context propagation is available to API consumers for distributed tracing correlation.
+
+environment_signaling:
+  supported: true
+  headers:
+  - X-Env-State
+  evidence: >-
+    A vendor-specific `X-Env-State` header is exposed via Access-Control-Expose-Headers. Its value
+    domain is not publicly documented; it plausibly distinguishes environment or mode (for example
+    test versus live) but that is NOT confirmed and is recorded here only as an observed header name.
+
+versioning:
+  scheme: unknown
+  current: unknown
+  evidence: >-
+    No version segment is documented. `https://api.liquidtrust.io/v1` returns 404, so a bare /v1 path
+    prefix is not in use at the root; the versioning scheme could not be determined without access.
+
+error_envelope:
+  format: unknown
+  problem_json: unknown
+  evidence: No public error reference is published; no error responses could be observed unauthenticated.
+
+rate_limiting:
+  documented: false
+  headers: unknown
+  evidence: >-
+    No rate-limit headers appear in the CORS expose list and no rate-limit policy is published.
+
+security_headers_observed:
+  strict_transport_security: max-age=31536000; includeSubDomains; preload
+  content_security_policy: "default-src 'none';frame-ancestors 'none'"
+  x_content_type_options: nosniff
+  x_frame_options: DENY
+  referrer_policy: no-referrer
+  permissions_policy: camera=(), microphone=(), geolocation=(), payment=()
+  cross_origin_opener_policy: same-origin
+  cross_origin_resource_policy: cross-origin
+  access_control_allow_origin: "*"
+  evidence: >-
+    Observed on a live HEAD/GET against https://api.liquidtrust.io/ on 2026-07-19. The host applies a
+    hardened default header set (Helmet-style), which is a meaningful positive signal for an
+    undocumented API.
+
+cross_links:
+  lifecycle: lifecycle/liquidtrust-lifecycle.yml
+  conformance: conformance/liquidtrust-conformance.yml
+  domain_security: security/liquidtrust-domain-security.yml
+  well_known: well-known/liquidtrust-well-known.yml
+
+gaps:
+- No public API reference or OpenAPI description
+- No documented authentication scheme
+- No documented idempotency contract
+- No documented pagination parameters or rate-limit policy
+- No public sandbox or test credentials
+- No published error catalog

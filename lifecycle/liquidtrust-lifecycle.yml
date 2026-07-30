@@ -1,0 +1,68 @@
+generated: '2026-07-19'
+method: searched
+source: https://status.liquidtrust.io/
+
+versioning:
+  scheme: unknown
+  current: unknown
+  docs: null
+  evidence: >-
+    No public versioning policy is published. LiquidTrust ships no developer portal or API reference;
+    the API is access-gated behind sales onboarding.
+
+deprecation:
+  policy_url: null
+  sunset_header: true
+  deprecation_header: true
+  standard: RFC 8594 (Sunset) / draft-ietf-httpapi-deprecation-header (Deprecation)
+  evidence: >-
+    https://api.liquidtrust.io/ returns
+    `access-control-expose-headers: traceparent,tracestate,X-Env-State,Deprecation,Sunset,Link`,
+    deliberately exposing both the Deprecation and Sunset response headers to API consumers. This is a
+    machine-readable deprecation signal observed live on 2026-07-19. No accompanying prose deprecation
+    policy page is published, so the policy_url is null rather than guessed.
+
+status_page:
+  url: https://status.liquidtrust.io/
+  provider: Instatus
+  components:
+  - name: App
+    uptime: 100.0%
+  - name: Website
+    uptime: 100.0%
+  third_party_components:
+  - AWS CloudFront
+  - AWS Route53
+  - AWS EC2 US-East-1
+  - AWS Lambda US-East-1
+  - AWS RDS US-East-1
+  feeds:
+    rss: https://status.liquidtrust.io/default/history.rss
+    atom: https://status.liquidtrust.io/default/history.atom
+    api: https://status.liquidtrust.io/default/public-api
+  subscribe:
+  - email
+  - slack
+  - microsoft-teams
+  - google-chat
+  - webhook
+  evidence: Fetched https://status.liquidtrust.io/ (HTTP 200) on 2026-07-19.
+
+sla:
+  url: null
+  uptime_target: null
+  evidence: >-
+    No published SLA or uptime commitment. The status page reports observed uptime (100.0% for App and
+    Website at time of capture) but that is a measurement, not a contractual target.
+
+changelog:
+  url: null
+  evidence: >-
+    No dated product or API changelog is published. https://www.liquidtrust.io/changelog returns 404.
+    The status page incident history (RSS/Atom above) covers incidents only, not API changes.
+
+deprecated_operations: []
+
+notes: >-
+  The infrastructure component list on the status page (CloudFront, Route53, EC2/Lambda/RDS in
+  us-east-1) indicates the platform runs on AWS in a single US region.

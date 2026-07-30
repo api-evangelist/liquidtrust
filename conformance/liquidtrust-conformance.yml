@@ -1,0 +1,87 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.liquidtrust.io/security
+trust_center: https://trust.liquidtrust.io/
+
+standards:
+- id: soc2-type-ii
+  conforms: true
+  evidence: >-
+    The security page states SOC 2 Type II, "audited annually", covering security, availability,
+    processing integrity, confidentiality, and privacy. Also surfaced on the Vanta-hosted trust center
+    at https://trust.liquidtrust.io/.
+- id: iso-27001
+  conforms: true
+  evidence: Security page lists ISO 27001 certification.
+- id: pci-dss
+  conforms: true
+  level: Level 1
+  evidence: Security page states PCI DSS Level 1 compliance.
+- id: gdpr
+  conforms: true
+  evidence: Security page states GDPR compliance.
+- id: ccpa
+  conforms: true
+  evidence: >-
+    Security page states compliance with CCPA and "other global privacy regulations".
+- id: kyc-kyb-aml
+  conforms: true
+  evidence: >-
+    Marketing and security pages describe integrated KYB/KYC verification and AML/sanctions screening
+    built into the payment flow across 200+ countries.
+- id: tls-1.3
+  conforms: true
+  evidence: >-
+    Security page states TLS 1.3 in transit; confirmed by live TLS probe of api.liquidtrust.io and
+    www.liquidtrust.io (see security/liquidtrust-domain-security.yml).
+- id: rfc8594-sunset-header
+  conforms: true
+  evidence: >-
+    api.liquidtrust.io exposes the `Sunset` and `Deprecation` response headers via
+    Access-Control-Expose-Headers (observed 2026-07-19).
+- id: rfc8288-web-linking
+  conforms: true
+  evidence: api.liquidtrust.io exposes the `Link` response header via Access-Control-Expose-Headers.
+- id: w3c-trace-context
+  conforms: true
+  evidence: >-
+    api.liquidtrust.io exposes `traceparent` and `tracestate` via Access-Control-Expose-Headers.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: >-
+    /.well-known/security.txt returns 404 on liquidtrust.io, www.liquidtrust.io, and
+    api.liquidtrust.io.
+- id: oauth2
+  conforms: unknown
+  evidence: >-
+    No public authentication documentation and no /.well-known/oauth-authorization-server (404).
+    Cannot be asserted either way.
+- id: openid-connect
+  conforms: unknown
+  evidence: /.well-known/openid-configuration returns 404; no public OIDC documentation.
+- id: rfc9457-problem-details
+  conforms: unknown
+  evidence: No public error reference or specification; error media type could not be observed.
+- id: openapi
+  conforms: false
+  evidence: >-
+    No OpenAPI or Swagger description is published at any probed location
+    (/openapi.json, /openapi.yaml, /swagger.json, /docs, /redoc all 404).
+
+encryption:
+  at_rest: AES-256 with AWS KMS managed keys and automatic key rotation
+  in_transit: TLS 1.3
+  source: https://www.liquidtrust.io/security
+
+controls_claimed:
+- 24/7 monitoring with real-time threat detection
+- Role-based access control (RBAC) and multi-factor authentication (MFA)
+- Regular penetration testing and vulnerability scanning
+- Funds held in segregated accounts at regulated U.S. financial institutions
+- AML and sanctions screening, KYB/KYC verification
+
+notes: >-
+  Compliance posture is genuinely published (a named, audited certification set plus a hosted trust
+  center), which is why a `Compliance` pointer is wired in apis.yml. The API-level standards above are
+  either observed live on the wire or explicitly recorded as unknown - none are inferred from a
+  specification, because LiquidTrust publishes none.

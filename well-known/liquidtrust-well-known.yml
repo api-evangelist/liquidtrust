@@ -1,0 +1,64 @@
+generated: '2026-07-19'
+method: searched
+source: live probes of the LiquidTrust hosts
+result: none
+notes: >-
+  Every RFC-registered discovery document was probed across all three live LiquidTrust hosts on
+  2026-07-19. None are served - the provider implements no /.well-known/ discovery surface. This file
+  is the negative record so later runs do not re-probe blindly; no WellKnown or SecurityTxt pointer is
+  wired in apis.yml because there is nothing to point at.
+hosts:
+- host: https://api.liquidtrust.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://www.liquidtrust.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://liquidtrust.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+other_discovery_probes:
+- path: /llms.txt
+  host: https://www.liquidtrust.io
+  status: 404
+- path: /openapi.json
+  host: https://www.liquidtrust.io
+  status: 404
+- path: /openapi.yaml
+  host: https://www.liquidtrust.io
+  status: 404
+- path: /openapi.json
+  host: https://api.liquidtrust.io
+  status: 404
+- path: /swagger.json
+  host: https://api.liquidtrust.io
+  status: 404
+- path: /docs
+  host: https://api.liquidtrust.io
+  status: 404
+- path: /redoc
+  host: https://api.liquidtrust.io
+  status: 404
+- path: /sitemap.xml
+  host: https://www.liquidtrust.io
+  status: 200
+  note: Marketing sitemap only - 13 site pages plus 80 blog posts, no developer content.
