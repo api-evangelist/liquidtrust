@@ -11,6 +11,17 @@ description: LiquidTrust, operated by Liquid Global, Inc., is a B2B payments pla
   $10 flat Simple Pay option for lower-risk transfers. The API surface at api.liquidtrust.io is live but
   access-gated behind sales onboarding; no public developer portal, OpenAPI description, SDKs, or
   sandbox documentation is published at this time.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
