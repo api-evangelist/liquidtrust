@@ -64,44 +64,96 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-LiquidTrust, operated by Liquid Global, Inc., is a B2B payments platform that embeds trust and
-conditionality directly into the payment flow. Its core product, Micro Escrow(R), holds funds and
-releases them against defined conditions such as milestones, approvals, and deliveries, giving buyers
-and sellers recourse without a traditional escrow agent. KYC/KYB, AML and sanctions screening are
-built into the payment rails, which settle to 200+ countries with J.P. Morgan named as a payment-rails
-partner. Pricing is 1% all-in per protected transaction, with a flat $10 Simple Pay option for
-lower-risk transfers.
+LiquidTrust, operated by Liquid Global, Inc., is a B2B payments platform that embeds trust and conditionality directly into the payment flow. Its core product, Micro Escrow(R), holds funds and releases them against defined conditions such as milestones, approvals, and deliveries, giving buyers and sellers recourse without a traditional escrow agent. The platform bundles KYC/KYB, AML and sanctions screening into the payment rails and settles to 200+ countries, with J.P. Morgan named as a payment-rails partner. LiquidTrust is sold to marketplaces, banks, and platform partners through three integration models - referral, white-label, and a direct API integration that embeds conditional payment logic into a partner platform. Pricing is a flat 1% all-in per protected transaction, with a $10 flat Simple Pay option for lower-risk transfers. The API surface at api.liquidtrust.io is live but access-gated behind sales onboarding; no public developer portal, OpenAPI description, SDKs, or sandbox documentation is published at this time.
 
-Backed by: Anthemis, Resolute, Motivate, Mucker
+**Areas:** Company · Payments · B2B Payments · Escrow · Fintech · Cross-Border Payments · Marketplace · Compliance · KYC · Trust and Safety
 
-## API status
+## LiquidTrust on APIs.io
 
-LiquidTrust sells three integration models — referral, white-label, and a direct API integration that
-embeds conditional payment logic into a partner platform. **The API is access-gated.** The host
-`https://api.liquidtrust.io` is live, but there is no public developer portal, API reference, OpenAPI
-description, SDK, CLI, or sandbox; onboarding runs through sales.
+Everything profiled for LiquidTrust is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/liquidtrust/](https://apis.io/providers/liquidtrust/)** — or go straight to one of the APIs or properties below.
 
-What could be observed on the wire: the API exposes `Deprecation` and `Sunset` (RFC 8594), `Link`
-(RFC 8288), and W3C Trace Context `traceparent`/`tracestate` headers, over TLS 1.3 with HSTS preload
-and a hardened CSP.
+### APIs (1)
 
-## Artifacts
+- [LiquidTrust API](https://apis.io/apis/liquidtrust/api/) — The LiquidTrust API lets platform partners embed conditional payment logic - Micro Escrow(R) holds, milestone approvals, and rule-based release - directly…
 
-| Artifact | File |
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Liquidtrust Domain Security](https://apis.io/security/liquidtrust/liquidtrust-domain-security/)
+- [Liquidtrust Trust Center](https://apis.io/security/liquidtrust/liquidtrust-trust-center/)
+- [Liquidtrust Vulnerability Disclosure](https://apis.io/security/liquidtrust/liquidtrust-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.liquidtrust.io/)
+- [Documentation](https://www.liquidtrust.io/knowledge-base)
+- [Pricing](https://www.liquidtrust.io/pricing)
+- [Sign up](https://www.liquidtrust.io/talk-to-sales)
+- [Support](https://www.liquidtrust.io/contact)
+- [Blog](https://liquidtrust.io/blog)
+- [Security](https://www.liquidtrust.io/security)
+- [Compliance](https://www.liquidtrust.io/security)
+- [Trust centre](https://trust.liquidtrust.io/)
+- [Terms of service](https://www.liquidtrust.io/terms-of-service)
+- [Privacy policy](https://www.liquidtrust.io/privacy)
+- [Status](https://status.liquidtrust.io/)
+
+## API Evangelist rating
+
+**Kin Score 28.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
 |---|---|
-| Conventions | `conventions/liquidtrust-conventions.yml` |
-| Lifecycle / status / deprecation | `lifecycle/liquidtrust-lifecycle.yml` |
-| Conformance | `conformance/liquidtrust-conformance.yml` |
-| Domain security | `security/liquidtrust-domain-security.yml` |
-| Vulnerability disclosure | `security/liquidtrust-vulnerability-disclosure.yml` |
-| Trust center | `security/liquidtrust-trust-center.yml` |
-| Well-known probe record | `well-known/liquidtrust-well-known.yml` |
-| llms.txt | `llms/liquidtrust-llms.txt` |
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 16.7 |
+| Access clarity | 52.6 |
 
-Compliance is genuinely published: SOC 2 Type II (audited annually), ISO 27001, PCI DSS Level 1,
-GDPR, and CCPA, with a Vanta-hosted trust center at <https://trust.liquidtrust.io/> and an Instatus
-status page at <https://status.liquidtrust.io/>.
+**Agent readiness 0.0** — human-only
 
-Not published by the provider, so deliberately absent here (no fabrication): OpenAPI, AsyncAPI or
-webhook catalog, SDKs/packages, CLI, MCP server, agent skills, OAuth scopes, error catalog, decline
-codes, sandbox/test data, changelog, embedded components, data model, and `/.well-known/` documents.
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 33.9** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/liquidtrust/](https://apis.io/providers/liquidtrust/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for LiquidTrust: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/liquidtrust/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
